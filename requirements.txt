@@ -3,4 +3,6 @@ pandas>=2.0
 scipy>=1.12
 matplotlib>=3.8
 statsmodels>=0.14
-mne>=1.7          # only required for 06_erp_waveforms.py
+pingouin>=0.5    # revision analyses (code/revision/)
+pillow>=10      # Figure 1 (code/figures/)
+mne>=1.7          # only for 06_erp_waveforms.py and the waveform panels of Figures 4–5

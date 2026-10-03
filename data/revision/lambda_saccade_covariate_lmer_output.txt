@@ -1,0 +1,27 @@
+==== m0: amplitude ~ condition ====
+                    Estimate Std. Error          df  t value     Pr(>|t|)
+(Intercept)        2.0997001 0.31283146    23.34217 6.711921 7.023666e-07
+conditionScrolling 0.1964092 0.06604317 23023.00744 2.973951 2.942963e-03
+
+==== m1: amplitude ~ condition + saccade_amplitude ====
+                     Estimate  Std. Error          df    t value      Pr(>|t|)
+(Intercept)        2.13470661 0.297269492    23.71146  7.1810484  2.169514e-07
+conditionScrolling 0.05465608 0.065122915 24044.55984  0.8392757  4.013230e-01
+sacc_c             0.23418515 0.006462432 35025.95100 36.2379268 2.576093e-282
+
+Scrolling-vs-Watching coefficient (uV):
+  without saccade covariate: b = 0.196
+  with    saccade covariate: b = 0.055
+  saccade-amplitude slope:   b = 0.2342 uV/deg
+  attenuation of condition effect: 72%
+
+LRT condition in m1 (does condition still matter after saccade?):
+Data: d
+Models:
+m1n: amplitude_uv ~ sacc_c + (1 | subject) + (1 | image_id)
+m1: amplitude_uv ~ condition + sacc_c + (1 | subject) + (1 | image_id)
+    npar    AIC    BIC  logLik -2*log(L)  Chisq Df Pr(>Chisq)
+m1n    5 226814 226857 -113402    226804                     
+m1     6 226816 226866 -113402    226804 0.7041  1     0.4014
+
+--- stderr ---
